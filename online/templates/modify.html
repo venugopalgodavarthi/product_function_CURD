@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>welcome to product modify</h1>
+
+    {% for msg in messages %}
+    <div>
+        <strong>{{msg}}</strong>
+        </div>
+
+    {% endfor %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <table>
+<tr><th><label for="id_pname">Pname:</label></th><td><input type="text" name="pname" value={{res.pname}} maxlength="30" required id="id_pname"></td></tr>
+<tr><th><label for="id_pdesc">Pdesc:</label></th><td><input type="text" name="pdesc" value={{res.pdesc}} maxlength="50" required id="id_pdesc"></td></tr>
+<tr><th><label for="id_pprice">Pprice:</label></th><td><input type="number" name="pprice" value={{res.pprice}} step="any" required id="id_pprice"></td></tr>
+<tr><th><label for="id_pdiscount">Pdiscount:</label></th><td><input type="number" name="pdiscount" value={{res.pdiscount}} step="any" required id="id_pdiscount"></td></tr>
+<tr><th><label for="id_ppic">Ppic:</label></th><td><input type="file" name="ppic" accept="image/*"></td></tr>
+<tr><th><label for="id_itemid">Itemid:</label></th><td><select name="itemid" required id="id_itemid">
+
+  <option value="1" selected>mobile</option> </select></td></tr>
+<tr><th><label >existing pic:</label></th><td><img src="{{res.ppic.url}}" alt="no image" height="75" width="100"></td></tr>
+
+</table>
+    <input type="submit" value="modify">
+</form>
+<a href="/details/"> details</a>
+<a href="/product/"> product</a>
+
+</body>
+</html>
